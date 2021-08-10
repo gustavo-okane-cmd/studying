@@ -18,7 +18,7 @@ import Button from "@material-ui/core/Button";
 import styled from "styled-components";
 
 const Title = styled.h1`
-    color: red;
+    color: darkblue;
     font-size: 50px;
 `;
 
@@ -44,15 +44,15 @@ export default function Index(props) {
     return (
         <Container maxWidth="md">
             {/* {console.log(ativos)} */}
-            <Title>Home Page Title with styled-components</Title>
+            <Title>Autocomplete component</Title>
             <Box my={4}>
                 <Typography variant="h4" component="h1" gutterBottom>
-                    Next.js v4-beta example teste ã ´´ 11 '' `` ^^ ~~ ççç
+                    Built with next, styled components, material ui and redux toolkit.
                 </Typography>
                 <StyledButton
                     onClick={() => dispatch(adicionarAtivo(["BBDC4", "BBDC4"]))}
                 >
-                    teste
+                    Example button that does nothing
                 </StyledButton>
 
                 <Typography variant="h4" component="h1" gutterBottom>

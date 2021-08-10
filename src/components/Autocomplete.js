@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import {
-    setLoadingAutocomplete,
     setOpen,
     setOptions,
     selectLoadingAutocomplete,
@@ -12,6 +11,10 @@ import {
 } from "../store/reducers/autocompleteSlice";
 
 import TextField from "@material-ui/core/TextField";
+// import {
+//     Autocomplete,
+//     createFilterOptions,
+// } from "@material-ui/lab/Autocomplete";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import styled from "styled-components";
@@ -35,7 +38,7 @@ function sleep(delay = 0) {
     });
 }
 
-export default function Asynchronous() {
+const AutocompleteField = () => {
     const dispatch = useDispatch();
     // const [open, setOpen] = React.useState(false);
     // const [options, setOptions] = React.useState([]);
@@ -96,6 +99,7 @@ export default function Asynchronous() {
             style={{ width: 300 }}
             open={open}
             autoSelect
+            filterOptions={(x) => x}
             onOpen={() => {
                 dispatch(setOpen(true));
                 console.log("!abriu");
@@ -130,8 +134,7 @@ export default function Asynchronous() {
                 typingTimeout = setTimeout(() => {
                     console.log("hue teste" + newInputValue);
                     dispatch(fetchAutocomplete(newInputValue));
-                }, 2000);
-
+                }, 300);
             }}
             getOptionSelected={(option, value) => option.id === value.id}
             getOptionLabel={(option) => option.title}
@@ -167,3 +170,4 @@ export default function Asynchronous() {
         />
     );
 }
+export default AutocompleteField
